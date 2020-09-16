@@ -41,7 +41,16 @@ namespace kiralyno
 
             public void Megjelenit()
             {
-
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        //Console.WriteLine("{0} ",T[i,j]);
+                        //Console.Write($"T[i,j] ");
+                        Console.Write(T[i,j] + " ");
+                    }
+                    Console.WriteLine();
+                }
             }
 
 
@@ -61,6 +70,10 @@ namespace kiralyno
         {
             Console.WriteLine("Királynők feladat");
 
+            Tabla t = new Tabla('#');
+
+            Console.WriteLine("Üres tábla: ");
+            t.Megjelenit();
 
             Console.ReadKey();
         }
