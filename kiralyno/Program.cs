@@ -11,7 +11,7 @@ namespace kiralyno
 
         class Tabla
         {
-            char[,] matrix = new char[8, 8];
+            char[,] T;
             private char uresCella;
             private int uresOszlopokSzama;
             private int uresSorokSzama;
@@ -19,7 +19,15 @@ namespace kiralyno
 
             public Tabla(char ch)
             {
-
+                T = new char[8, 8];
+                uresCella = ch;
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        T[i, j] = uresCella;
+                    }
+                }
             }
             public void Elhelyez()
             {
@@ -40,17 +48,18 @@ namespace kiralyno
 
             public int UresOszlop()
             {
-
+                return 0;
             }
 
             public int UresSor()
             {
-
+                return 0;
             }
 
         }
         static void Main(string[] args)
         {
+            Console.WriteLine("Királynők feladat");
 
 
             Console.ReadKey();
