@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace kiralyno
 {
@@ -29,6 +30,7 @@ namespace kiralyno
                     }
                 }
             }
+
             public void Elhelyez(int N)
             {
                 // 1. véletlen helyérték létrehozása
@@ -70,8 +72,6 @@ namespace kiralyno
                     Console.WriteLine();
                 }
             }
-
-
 
             public bool UresOszlop(int oszlop)
             {
