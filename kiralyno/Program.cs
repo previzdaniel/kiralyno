@@ -73,14 +73,33 @@ namespace kiralyno
 
 
 
-            public int UresOszlop()
+            public bool UresOszlop(int oszlop)
             {
-                return 0;
+                int i = 0;
+                bool meh = false;
+                while (i< 8 && T[i,oszlop] == '#')
+                {
+                    if (T[i,oszlop] == 'K')
+                    {
+                        meh = true;
+                    }
+                    i++;
+                }
+                if (i>8)
+                {
+                    meh = false;
+                }
+                else
+                {
+                    meh = true;
+                }
+                Console.WriteLine(meh);
+                return meh;
             }
 
-            public int UresSor()
+            public bool UresSor(int sor)
             {
-                return 0;
+                return true;
             }
 
         }
@@ -95,6 +114,10 @@ namespace kiralyno
 
             Console.WriteLine();
             t.Elhelyez(5);
+
+            Console.WriteLine();
+            t.UresOszlop(3);
+
             Console.WriteLine();
             t.Megjelenit();
 
