@@ -37,20 +37,19 @@ namespace kiralyno
                 // - Elhelyezzük a "K"-t csak akkor
                 //   HA!!! üres --> '#'
 
-                int rnd = N;
-
                 Random vel = new Random();
 
-                for (int i = 0; i <= rnd; i++)
+                for (int i = 0; i < N; i++)
                 {
                     int sor = vel.Next(0, 8);
                     int oszlop = vel.Next(0, 8);
-                    if (T[sor, oszlop] == '#')
+                    while (T[sor,oszlop] == 'K')
                     {
-                        T[sor, oszlop] = 'K';
+                        sor = vel.Next(0, 8);
+                        oszlop = vel.Next(0, 8);
                     }
+                    T[sor, oszlop] = 'K';
                 }
-
             }
 
             public void FajlbaIr()
@@ -95,7 +94,7 @@ namespace kiralyno
             t.Megjelenit();
 
             Console.WriteLine();
-            t.Elhelyez(8);
+            t.Elhelyez(5);
             Console.WriteLine();
             t.Megjelenit();
 
