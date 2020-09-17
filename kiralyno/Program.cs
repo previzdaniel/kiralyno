@@ -76,30 +76,41 @@ namespace kiralyno
             public bool UresOszlop(int oszlop)
             {
                 int i = 0;
-                bool meh = false;
-                while (i< 8 && T[i,oszlop] == '#')
+                while (i < 8 && T[i,oszlop] == '#')
                 {
-                    if (T[i,oszlop] == 'K')
-                    {
-                        meh = true;
-                    }
                     i++;
                 }
-                if (i>8)
+
+                if (i<8)
                 {
-                    meh = false;
+                    Console.WriteLine("Van Királynő");
+                    return true;
                 }
                 else
                 {
-                    meh = true;
+                    Console.WriteLine("Nincs királynő");
+                    return false;
                 }
-                Console.WriteLine(meh);
-                return meh;
             }
 
             public bool UresSor(int sor)
             {
-                return true;
+                int i = 0;
+                while (i < 8 && T[sor, i] == '#')
+                {
+                    i++;
+                }
+
+                if (i < 8)
+                {
+                    Console.WriteLine("Van Királynő");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Nincs királynő");
+                    return false;
+                }
             }
 
         }
@@ -113,13 +124,27 @@ namespace kiralyno
             t.Megjelenit();
 
             Console.WriteLine();
-            t.Elhelyez(5);
+            
+            Console.Write("Mennyit szeretnél elhelyezni? ");
+            int db = int.Parse(Console.ReadLine());
+            t.Elhelyez(db);
 
-            Console.WriteLine();
-            t.UresOszlop(3);
-
-            Console.WriteLine();
             t.Megjelenit();
+
+            Console.WriteLine();
+            
+            Console.Write("Hanyadik oszlopot szeretnéd vizsgálni? ");
+            int ho = int.Parse(Console.ReadLine());
+            t.UresOszlop(ho - 1);
+
+            Console.WriteLine();
+
+            Console.Write("Hanyadik sort szeretnéd vizsgálni? ");
+            int hs = int.Parse(Console.ReadLine());
+            t.UresSor(hs - 1);
+
+            Console.WriteLine();
+
 
             Console.ReadKey();
         }
