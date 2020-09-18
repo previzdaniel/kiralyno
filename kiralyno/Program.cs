@@ -81,14 +81,12 @@ namespace kiralyno
                     i++;
                 }
 
-                if (i<8)
+                if (i < 8)
                 {
-                    Console.WriteLine("Van Királynő");
                     return true;
                 }
                 else
                 {
-                    Console.WriteLine("Nincs királynő");
                     return false;
                 }
             }
@@ -103,12 +101,10 @@ namespace kiralyno
 
                 if (i < 8)
                 {
-                    Console.WriteLine("Van Királynő");
                     return true;
                 }
                 else
                 {
-                    Console.WriteLine("Nincs királynő");
                     return false;
                 }
             }
@@ -145,6 +141,23 @@ namespace kiralyno
 
             Console.WriteLine();
 
+            Console.WriteLine("8. feladat: az üres oszlopok és sorok száma: ");
+
+            int uresSor = 0;
+            int uresOszlop = 0;
+
+            for (int i = 0; i < 8; i++)
+            {
+                if (t.UresOszlop(i) == false)
+                {
+                    uresOszlop++;
+                }
+                if (t.UresSor(i) == false)
+                {
+                    uresSor++;
+                }
+            }
+            Console.WriteLine("Üres oszlopok száma: {0}, üres sorok száma: {1}",uresOszlop, uresSor);
 
             Console.ReadKey();
         }
