@@ -54,9 +54,18 @@ namespace kiralyno
                 }
             }
 
-            public void FajlbaIr()
+            public void FajlbaIr(StreamWriter fajl)
             {
-
+                //fajl.WriteLine("Ez egy szöveg");
+                for (int i = 0; i < 8; i++)
+                {
+                    string sor = "";
+                    for (int j = 0; j < 8; j++)
+                    {
+                        sor += T[i, j] + " ";
+                    }
+                    fajl.WriteLine(sor);
+                }
             }
 
             public void Megjelenit()
@@ -115,6 +124,10 @@ namespace kiralyno
             Console.WriteLine("Királynők feladat");
 
             Tabla t = new Tabla('#');
+            Tabla[] tablak = new Tabla[64];
+
+
+
 
             Console.WriteLine("Üres tábla: ");
             t.Megjelenit();
@@ -129,17 +142,17 @@ namespace kiralyno
 
             Console.WriteLine();
             
-            Console.Write("Hanyadik oszlopot szeretnéd vizsgálni? ");
-            int ho = int.Parse(Console.ReadLine());
-            t.UresOszlop(ho - 1);
+            //Console.Write("Hanyadik oszlopot szeretnéd vizsgálni? ");
+            //int ho = int.Parse(Console.ReadLine());
+            //t.UresOszlop(ho - 1);
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
-            Console.Write("Hanyadik sort szeretnéd vizsgálni? ");
-            int hs = int.Parse(Console.ReadLine());
-            t.UresSor(hs - 1);
+            //Console.Write("Hanyadik sort szeretnéd vizsgálni? ");
+            //int hs = int.Parse(Console.ReadLine());
+            //t.UresSor(hs - 1);
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
             Console.WriteLine("8. feladat: az üres oszlopok és sorok száma: ");
 
@@ -158,6 +171,22 @@ namespace kiralyno
                 }
             }
             Console.WriteLine("Üres oszlopok száma: {0}, üres sorok száma: {1}",uresOszlop, uresSor);
+
+            StreamWriter ki = new StreamWriter("adatok.txt");
+
+            for (int i = 0; i < tablak.Length; i++)
+            {
+                tablak[i] = new Tabla('*');
+            }
+
+            for (int i = 0; i < tablak.Length; i++)
+            {
+                tablak[i].Elhelyez(i + 1);
+                tablak[i].FajlbaIr(ki);
+                ki.WriteLine();
+            }
+
+             ki.Close();
 
             Console.ReadKey();
         }
